@@ -1,6 +1,6 @@
 module "reflex_aws_cloudtrail_deleted" {
   source           = "git::https://github.com/cloudmitigator/reflex-engine.git//modules/cwe_lambda"
-  rule_name        = "ReflexAwsCloudtrailDeleted"
+  rule_name        = "CloudtrailDeleted"
   rule_description = "Detect when a CloudTrail Trail has been deleted"
 
   event_pattern = <<PATTERN
@@ -22,7 +22,7 @@ module "reflex_aws_cloudtrail_deleted" {
 }
 PATTERN
 
-  function_name   = "ReflexAwsCloudtrailDeleted"
+  function_name   = "CloudtrailDeleted"
   source_code_dir = "${path.module}/source"
   handler         = "reflex_aws_cloudtrail_deleted.lambda_handler"
   lambda_runtime  = "python3.7"
@@ -31,10 +31,10 @@ PATTERN
     
   }
 
-  queue_name    = "ReflexAwsCloudtrailDeleted"
+  queue_name    = "CloudtrailDeleted"
   delay_seconds = 0
 
-  target_id = "ReflexAwsCloudtrailDeleted"
+  target_id = "CloudtrailDeleted"
 
   sns_topic_arn  = var.sns_topic_arn
   sqs_kms_key_id = var.reflex_kms_key_id

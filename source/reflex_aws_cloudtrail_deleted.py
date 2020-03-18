@@ -1,4 +1,4 @@
-""" Module for ReflexAwsCloudtrailDeleted """
+""" Module for CloudtrailDeleted """
 
 import json
 import os
@@ -7,7 +7,7 @@ import boto3
 from reflex_core import AWSRule
 
 
-class ReflexAwsCloudtrailDeleted(AWSRule):
+class CloudtrailDeleted(AWSRule):
     """ Detect when a CloudTrail Trail has been deleted """
 
     def __init__(self, event):
@@ -33,5 +33,5 @@ class ReflexAwsCloudtrailDeleted(AWSRule):
 
 def lambda_handler(event, _):
     """ Handles the incoming event """
-    rule = ReflexAwsCloudtrailDeleted(json.loads(event["Records"][0]["body"]))
+    rule = CloudtrailDeleted(json.loads(event["Records"][0]["body"]))
     rule.run_compliance_rule()
