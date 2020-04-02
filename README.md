@@ -11,8 +11,8 @@ To use this rule either add it to your `reflex.yaml` configuration file:
 ```
 rules:
   aws:
-  - cloudtrail-deleted:
-      version: latest
+    - cloudtrail-deleted:
+        version: latest
 ```
 
 or add it directly to your Terraform:  
