@@ -1,5 +1,5 @@
 module "reflex_aws_cloudtrail_deleted" {
-  source           = "git::https://github.com/cloudmitigator/reflex-engine.git//modules/cwe_lambda?ref=v0.5.7"
+  source           = "git::https://github.com/cloudmitigator/reflex-engine.git//modules/cwe_lambda?ref=v0.5.8"
   rule_name        = "CloudtrailDeleted"
   rule_description = "Detect when a CloudTrail Trail has been deleted"
 
